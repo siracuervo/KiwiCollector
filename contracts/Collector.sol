@@ -54,6 +54,8 @@ contract Collector is Ownable {
     }
 
     function updateAtIndex(uint32 index, address _newaddress) public onlyOwner {
+        require (contractsAddresses.length > 0, 'Load a splitter first!');
+
         bool alreadyExists = false;
 
         for (uint32 i=0; i<contractsAddresses.length; i++) {
